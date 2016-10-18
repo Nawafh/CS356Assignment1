@@ -1,7 +1,13 @@
+/*
+ * Author Nawaf Alsufiani
+ * class SingleAnswer extends information from class Question
+ * 
+ */
+
 
 public class SingleAnswer extends Question 
 {
-
+  
 	 private String  answer="";
 	 private String  correct;
 	

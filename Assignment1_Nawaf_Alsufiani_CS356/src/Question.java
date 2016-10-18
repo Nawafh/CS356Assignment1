@@ -8,14 +8,14 @@ public abstract class Question
 	private String question;
  
 
-public void setQuestion(String question)
+protected void setQuestion(String question)
 {
 	this.question=question;
 	
 	
 }
 
-public String getQuestion()
+protected String getQuestion()
 { 
 	return this.question;
 	

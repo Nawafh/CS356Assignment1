@@ -1,3 +1,9 @@
+/*
+ * Author Nawaf Alsufiani
+ * class MultipleAnswer extends information from class Question
+ * it gives information about how to deal with multiple choices
+ */
+
 
 public class MultipleAnswer extends Question 
 {
@@ -6,9 +12,11 @@ public class MultipleAnswer extends Question
 	 private String  correct;
 	 
 	
-	 public MultipleAnswer()
+	 public MultipleAnswer(String question,String a,String b,String c)
 	 {
+		 super.setQuestion(question);
 		 
+		 this.correct= a+""+b+""+c;//using 3 multiple choices
      }
 	 
 	 public void printQuestionType()
@@ -18,11 +26,12 @@ public class MultipleAnswer extends Question
 	 public void setStudentAnswer(String a,String b,String c)
 		{
 			
-		  this.answer= a+""+b+""+c;
+		  this.answer= a+""+b+""+c;//using 3 multiple choices
         }
 
 	public String getStudentAnswer()
 	{
+		
 		return this.answer;
 		
 	}

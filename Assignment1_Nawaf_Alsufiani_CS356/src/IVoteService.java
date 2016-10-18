@@ -1,14 +1,22 @@
+/* Author,Nawaf Alsufiani
+ * 
+  This is the IVoteService class was writen to procees 
+ the students answers and return the statistic about the 
+ the answers of the students
+ */
+
 import java.util.Hashtable;
 
 public class IVoteService
 {
+	//data members
 private Person  students;
-private Hashtable<Integer,String> table = new Hashtable<>();
-private String answer;
-private int id;
-private String correctAnswer = "";
-private int right=0;
-private int wrong=0;
+private Hashtable<Integer,String> table = new Hashtable<>();//hash table to store student id and the answer.
+private String studentAnswer;//store student's answer
+private int id;// an Id of the student is used to get information about the student if he/she resubmit the same question again
+private String correctAnswer;//store the correct answer of the question to compare it with student's answer.
+private int right=0; //count the number of correct questions
+private int wrong=0;//count the number of wrong questions
 
 public 	IVoteService(Person  students,SingleAnswer singleAnswer)
 {
@@ -27,10 +35,11 @@ public 	IVoteService(Person  students,MultipleAnswer MultipleAnswer)
 }
 
 
-public void submit(int id,String answer)
+public void submit(int id,String studentAnswer)
 {
 	this.id=id;
-	this.answer=answer;
+	this.studentAnswer=studentAnswer;
+	
 	boolean contain = table.containsKey(id);
 	
 	if(contain==true)
@@ -53,10 +62,11 @@ public void submit(int id,String answer)
 		}
 	}
 	
-	table.put(this.id,this.answer);
 	
-	if(answer.equals(correctAnswer))
+	table.put(id,studentAnswer);
+	if(studentAnswer.equals(correctAnswer))
 	{
+		
 		right++;
 	}
 	else
@@ -69,7 +79,7 @@ public void submit(int id,String answer)
 
 public String getAnswer()
 {
-	return answer;
+	return this.studentAnswer;
 }
 
 public String statistics()
@@ -77,4 +87,4 @@ public String statistics()
 	return "Numbers of correct answers:"+right + "Numbers of wrong answers:"+wrong;
 }
 
-}
+ }
